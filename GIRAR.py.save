@@ -1,0 +1,35 @@
+import Adafruit_BBIO.GPIO as GPIO
+import time
+from time import sleep
+
+CW=1	#rotacion en direccion contraria del reloj
+CCW=0	#rotacion en direccion del reloj
+SPR=48   #pasos por reovlucion
+#DIR="P8_7"
+#STEP="P8_9"
+
+
+GPIO.setup("P8_7",GPIO.OUT)  	#activa el puerto de la direccion
+GPIO.setup("P8_9",GPIO.OUT)	#activa el puerto del paso
+GPIO.output("P8_7",CW)		#le dice al puerto de direccion en que sentido rote
+
+
+step_count=SPR
+delay=.0208			# tiempo que se demora en dar un paso
+
+for x in range(step_count):
+	GPIO.output("P8_9",GPIO.HIGH) #activa para que de el paso espera desactiva espara y al siguiente paso
+	sleep(delay)
+	GPIO.output("P8_9",GPIO.LOW)
+	sleep(delay)
+
+sleep(.5)
+GPIO.output("P8_7",CCW)
+for x in range(step_count):
+        GPIO.output("P8_9",GPIO.HIGH)
+        sleep(delay)
+        GPIO.output("P8_9",GPIO.LOW)
+        sleep(delay)
+
+
+GPIO.cleanup()
