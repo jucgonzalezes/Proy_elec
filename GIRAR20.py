@@ -12,7 +12,9 @@ def rot(Motor,Sentido, step_count):
 		GPIO.output(eval('LED{}'.format(Motor)),GPIO.HIGH) if x < step_count-1 else GPIO.output(eval('LED{}'.format(Motor)),GPIO.LOW)
 
 
+
 #Commit
+#Commit2
 #DECLARACION DE VARIABLES DE PARA LOS MOTORES--------------------------------------------------
 CW, CCW=0, 1	#rotacion en direccion contraria (del) del reloj
 DIR1, DIR2, DIR3 = "P8_7","P8_13","P8_13" # Puertos de direccion
