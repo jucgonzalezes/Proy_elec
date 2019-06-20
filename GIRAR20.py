@@ -43,6 +43,9 @@ volver_punto_inicial.close()
 
 #SENTIDO Y PASO DE LOS MOTORES-------------------------------------------------------------------
 
+for elem in np.arange(1,4):
+	SPR{}.format(elem) = input("Ingrese numero de pasos para el motor {} (200 pasos por vuelta): ".format(elem))
+
 SPR1 = input("Ingrese numero de pasos para el motor 1 (200 pasos por vuelta): ")  #pasos por revolucion
 SPR2 = input("Ingrese numero de pasos para el motor 2 (200 pasos por vuelta): ")  #pasos por revolucion
 SPR3 = input("Ingrese numero de pasos para el motor 3 (200 pasos por vuelta): ")  #pasos por revolucion
