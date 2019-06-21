@@ -29,13 +29,18 @@ class Rotar:
 
     def conf_puertos(self):
         for elm in self.vec:
-            print(elm)
+            print(' ')
+            print('Puertos designados para el motor {}'.format(elm))
+            print(' ')
             a = ['DIR{}'.format(elm), 'STEP{}'.format(elm), 'LED{}'.format(elm)]
             for k in range(len(a)):
                 # GPIO.setup(eval(A[k]), GPIO.OUT)
-                print(a[k])
+                print('{} = {}'.format(a[k], eval(a[k])))
 
     def direccion(self):
+        print(' ')
+        print('Direcciones de movimiento de cada motor')
+        print(' ')
         for elem in self.vec:
             if eval(self.step_count[elem-1]) <= eval(self.coord_inic[elem-1]):
                 # GPIO.output(eval('DIR{}'.format(elem)),0)
@@ -43,8 +48,12 @@ class Rotar:
             else:
                 # GPIO.output(eval('DIR{}'.format(elem)),1)
                 print('El motor {} gira CCW'.format(elem))
+        print(' ')
 
     def rot(self):
+        print(' ')
+        print('Inicia el movimiento')
+        print(' ')
         for j in range(1, max(self.coord_rel) + 1):
             print('SPR: {}'.format(j))
             for motor in self.vec:
@@ -53,13 +62,10 @@ class Rotar:
                     print('Motor: {}'.format(motor))
             print('')
 
-#GPIO.cleanup()
+# DECLARACION DE LOS PUERTOS
 
-# SPR = []
-# for i in range(3):
-#     SPR.append(input("Ingrese numero de pasos para el motor {} (200 pasos por vuelta): ".format(i+1)))
+DIR1, DIR2, DIR3 = "P8_7", "P8_13", "P8_13"  # Puertos de direccion
+STEP1, STEP2, STEP3 = "P8_9", "P8_11", "P8_11"  # Puertos de paso
+LED1, LED2, LED3 = "P8_14", "P8_16", "P8_16"  # Puertos LED
 
-
-# x = Rotar(SPR)
-# x.direccion()
-# x.rot()
+# GPIO.cleanup()
