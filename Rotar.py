@@ -53,6 +53,7 @@ class Rotar:
                     print('Motor: {}'.format(motor))
             print('')
 
+#GPIO.cleanup()
 
 # SPR = []
 # for i in range(3):
